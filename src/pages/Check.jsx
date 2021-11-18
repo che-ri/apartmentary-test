@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 
 //components
 import DefaultButton from "../components/DefaultButton";
@@ -14,11 +14,12 @@ export default function Check() {
   const { id } = useParams();
   const checkListIdx = Number(id);
   const history = useHistory();
-  const [checkedList, setCheckedList] = useState(blankCaseBank);
-
+  const { state } = useLocation();
+  const checkedListRef = useRef(state?.checked ? state.checked : blankCaseBank);
+  const checkedList = checkedListRef.current;
   const handleSetCheckedList = (id, properties, value, dependency) => {
     //선택한 태그를 저장하거나, 취소하는 함수
-    let _list = [...checkedList];
+    let _list = checkedListRef.current;
     _list[checkListIdx].list = _list[checkListIdx].list.map((checkGroup) => {
       if (checkGroup?.properties === properties) {
         const tagIndex = checkGroup.tag.findIndex(
@@ -38,22 +39,24 @@ export default function Check() {
           //태그를 선택한 적이 있으면 배열에 태그를 삭제
           checkGroup.tag.splice(tagIndex, 1);
         }
-        console.log(checkGroup);
       }
       return checkGroup;
     });
-    setCheckedList(_list);
   };
 
   const movePrevList = () => {
     if (checkListIdx === 0) return alert("이전페이지가 없습니다!");
-    history.push(`/check/${Number(checkListIdx) - 1}`);
+    history.push(`/check/${Number(checkListIdx) - 1}`, {
+      checked: checkedListRef.current,
+    });
   };
 
   const moveNextList = () => {
     //다음 체크리스트로 이동하는 함수
     if (checkListIdx === caseBank.length - 1) return alert("설문조사 끝!");
-    history.push(`/check/${Number(checkListIdx) + 1}`);
+    history.push(`/check/${Number(checkListIdx) + 1}`, {
+      checked: checkedListRef.current,
+    });
   };
 
   return (
