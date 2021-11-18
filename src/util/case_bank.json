@@ -1,0 +1,425 @@
+[
+  {
+    "title": "바닥재",
+    "id": "check1",
+    "list": [
+      {
+        "properties": "재료",
+        "type": "checkbox",
+        "id": "check1-1",
+        "tag": [
+          {"name": "강마루", "id": "check1-1-1"},
+          {"name": "포세린 타일", "id": "check1-1-2"}
+        ]
+      },
+      {
+        "properties": "컬러",
+        "type": "dependency-checkbox",
+        "id": "check1-2",
+        "tag": [
+          { "name": "화이트", "dependency": "강마루", "id":"check1-2-1"},
+          { "name": "베이지", "dependency": "강마루", "id":"check1-2-2"},
+          { "name": "브라운", "dependency": "강마루", "id":"check1-2-3"},
+          { "name": "오크", "dependency": "강마루", "id":"check1-2-4"},
+          { "name": "화이트", "dependency": "포세린 타일", "id":"check1-2-5"},
+          { "name": "그레이", "dependency": "포세린 타일", "id":"check1-2-6"},
+          { "name": "블랙", "dependency": "포세린 타일", "id":"check1-2-7" }
+        ]
+      },
+      {
+        "properties": "스타일(사이즈)",
+        "type": "dependency-checkbox",
+        "id": "check1-3",
+        "tag": [
+          { "name": "일반형", "dependency": "강마루", "id": "check1-3-1"},
+          { "name": "헤링본", "dependency": "강마루", "id": "check1-3-2"},
+          { "name": "30*30", "dependency": "포세린 타일", "id": "check1-3-3"},
+          { "name": "15*15", "dependency": "포세린 타일", "id": "check1-3-4"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "현관",
+    "id": "check2",
+    "list": [
+      {
+        "properties": "도어컬러",
+        "type": "checkbox",
+        "id": "check2-1",
+        "tag": [
+          {"name": "그레이", "id": "check2-1-1"},
+          {"name": "블루", "id": "check2-1-2"},
+          {"name": "화이트", "id": "check2-1-3"}
+        ]   
+      },
+      {
+        "properties": "바닥타일컬러",
+        "id": "check2-2",
+        "type": "checkbox",
+        "tag": [
+          {"name": "베이지", "id": "check2-2-1"},
+          {"name": "그레이", "id": "check2-2-2"},
+          {"name": "블랙", "id": "check2-2-3"},
+          {"name": "블루", "id": "check2-2-4"},
+          {"name": "그린", "id": "check2-2-5"}
+        ]
+      },
+      {
+        "properties": "바닥타일패턴",
+        "id": "check2-3",
+        "type": "checkbox",
+        "tag": [
+          {"name": "무지", "id": "check2-3-1"},
+          {"name": "스몰 패턴", "id": "check2-3-2"},
+          {"name": "포인트 패턴", "id": "check2-3-3"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "중문",
+    "id": "check3",
+    "list": [
+      {
+        "properties": "스타일",
+        "type": "checkbox",
+        "id": "check3-1",
+        "tag": [
+          {"name": "금속 철재 스윙", "id": "check3-1-1"},
+          {"name": "제작 목중문", "id": "check3-1-2"},
+          {"name": "금속 간살 도어", "id": "check3-1-3"},
+          {"name": "원목 디자인", "id": "check3-1-4"}
+        ]
+      },
+      {
+        "properties": "컬러",
+        "id": "check3-2",
+        "type": "checkbox",
+        "tag": [
+          {"name": "우드", "id": "check3-2-1"},
+          {"name": "화이트", "id": "check3-2-2"},
+          {"name": "블랙", "id": "check3-2-3"},
+          {"name": "그레이", "id": "check3-2-4"},
+          {"name": "블루", "id": "check3-2-5"},
+          {"name": "기타", "id": "check3-2-6"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "구조변경",
+    "id": "check4",
+    "list": [
+      {
+        "properties": "스타일",
+        "id": "check4-1",
+        "type": "checkbox",
+        "tag": [
+          {"name": "아치형벽", "id": "check4-1-1"},
+          {"name": "침실 공간분리", "id": "check4-1-2"},
+          {"name": "현관벤치", "id": "check4-1-3"},
+          {"name": "윈도우시트", "id": "check4-1-4"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "포인트 컬러",
+    "id": "check5",
+    "list": [
+      {
+        "properties": "거실",
+        "type": "checkbox",
+        "id": "check5-1",
+        "tag": [
+          {"name": "블루", "id": "check5-1-1"},
+          {"name": "그레이", "id": "check5-1-2"},
+          {"name": "브라운", "id": "check5-1-3"},
+          {"name": "대리석", "id": "check5-1-4"},
+          {"name": "타일", "id": "check5-1-5"}
+        ]
+      },
+      {
+        "properties": "룸",
+        "type": "checkbox",
+        "id": "check5-2",
+        "tag": [
+          {"name": "그레이", "id": "check5-2-1"},
+          {"name": "블루", "id": "check5-2-2"},
+          {"name": "그린", "id": "check5-2-3"},
+          {"name": "옐로우", "id": "check5-2-4"},
+          {"name": "핑크", "id": "check5-2-5"},
+          {"name": "오렌지", "id": "check5-2-6"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "가구 스타일 및 컬러",
+    "id": "check6",
+    "list": [
+      {
+        "properties": "현관장 컬러",
+        "type": "checkbox",
+        "id": "check6-1",
+        "tag": [
+          {"name": "화이트", "id": "check6-1-1"},
+          {"name": "베이지", "id": "check6-1-2"},
+          {"name": "그레이", "id": "check6-1-3"},
+          {"name": "기타", "id": "check6-1-4"}
+        ]
+      },
+      {
+        "properties": "현관장 스타일",
+        "type": "checkbox",
+        "id": "check6-2",
+        "tag": []
+      },
+      {
+        "properties": "룸북박이장",
+        "type": "checkbox",
+        "id": "check6-3",
+        "tag": [
+          {"name": "화이트", "id": "check6-2-1"},
+          {"name": "베이지", "id": "check6-2-2"},
+          {"name": "그레이", "id": "check6-2-3"},
+          {"name": "기타", "id": "check6-2-4"}
+        ]
+      },
+      {
+        "properties": "룸북박이장 스타일",
+        "type": "checkbox",
+        "id": "check6-4",
+        "tag": []
+      }
+    ]
+  },
+  {
+    "title": "룸별 스타일",
+    "id": "check7",
+    "list": [
+      {
+        "properties": "용도",
+        "type": "checkbox",
+        "id": "check7-1",
+        "tag": [
+          {"name": "자녀방 (여)", "id": "check7-1-1"},
+          {"name": "자녀방 (남)", "id": "check7-1-2"},
+          {"name": "게스트룸", "id": "check7-1-3"},
+          {"name": "서재", "id": "check7-1-4"},
+          {"name": "취미룸", "id": "check7-1-5"},
+          {"name": "파우더룸", "id": "check7-1-6"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "키친",
+    "id": "check8",
+    "list": [
+      {
+        "properties": "구조",
+        "type": "checkbox",
+        "id": "check8-1",
+        "tag": [
+          {"name": "SINGLE", "id": "check8-1-1"},
+          {"name": "L-SHAPE", "id": "check8-1-2"},
+          {"name": "U-SHAPE", "id": "check8-1-3"}
+        ]
+      },
+      {
+        "properties": "스타일",
+        "type": "checkbox",
+        "id": "check8-2",
+        "tag": [
+          {"name": "FIT", "id": "check8-2-1"},
+          {"name": "TAN", "id": "check8-2-2"},
+          {"name": "YAT", "id": "check8-2-3"},
+          {"name": "기타", "id": "check8-2-4"}
+        ]
+      },
+      {
+        "properties": "상부장 컬러",
+        "type": "checkbox",
+        "id": "check8-3",
+        "tag": [
+          {"name": "WHITE", "id": "check8-3-1"},
+          {"name": "SAND GREY", "id": "check8-3-2"},
+          {"name": "DARK GREY", "id": "check8-3-3"},
+          {"name": "기타", "id": "check8-3-4"}
+        ]
+      },
+      {
+        "properties": "하부장 컬러",
+        "type": "checkbox",
+        "id": "check8-4",
+        "tag": [
+          {"name": "WHITE", "id": "check8-4-1"},
+          {"name": "SAND GREY", "id": "check8-4-2"},
+          {"name": "DARK GREY", "id": "check8-4-3"},
+          {"name": "기타", "id": "check8-4-4"}
+        ]
+      },
+      {
+        "properties": "상판 재질",
+        "type": "checkbox",
+        "id": "check8-5",
+        "tag": [
+          {"name": "인조대리석", "id": "check8-5-1"},
+          {"name": "플로리스", "id": "check8-5-2"},
+          {"name": "칸스톤", "id": "check8-5-3"},
+          {"name": "세라믹", "id": "check8-5-4"}
+        ]
+      },
+      {
+        "properties": "타일컬러",
+        "type": "checkbox",
+        "id": "check8-6",
+        "tag": [
+          {"name": "화이트", "id": "check8-6-1"},
+          {"name": "베이지", "id": "check8-6-2"},
+          {"name": "그레이", "id": "check8-6-3"},
+          {"name": "블랙", "id": "check8-6-4"}
+        ]
+      },
+      {
+        "properties": "타일스타일",
+        "type": "checkbox",
+        "id": "check8-7",
+        "tag": [
+          {"name": "스몰패턴", "id": "check8-7-1"},
+          {"name": "라지패턴", "id": "check8-7-2"},
+          {"name": "포인트디자인", "id": "check8-7-3"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "바스",
+    "id": "check9",
+    "list": [
+      {
+        "properties": "스타일",
+        "type": "checkbox",
+        "id": "check9-1",
+        "tag": [
+          {"name": "ASEADO", "id": "check9-1-1"},
+          {"name": "BEIS", "id": "check9-1-2"},
+          {"name": "SERENO", "id": "check9-1-3"},
+          {"name": "FINO", "id": "check9-1-4"}
+        ]
+      },
+      {
+        "properties": "바닥타일",
+        "type": "checkbox",
+        "id": "check9-2",
+        "tag": [
+          {"name": "베이지", "id": "check9-2-1"},
+          {"name": "그레이", "id": "check9-2-2"},
+          {"name": "블랙", "id": "check9-2-3"},
+          {"name": "기타", "id": "check9-2-4"}
+        ]
+      },
+      {
+        "properties": "벽타일",
+        "type": "checkbox",
+        "id": "check9-3",
+        "tag": [
+          {"name": "베이지", "id": "check9-3-1"},
+          {"name": "그레이", "id": "check9-3-2"},
+          {"name": "블랙", "id": "check9-3-3"},
+          {"name": "기타", "id": "check9-3-4"}
+        ]
+      },
+      {
+        "properties": "욕실장",
+        "type": "checkbox",
+        "id": "check9-4",
+        "tag": [
+          {"name": "화이트", "id": "check9-4-1"},
+          {"name": "우드", "id": "check9-4-2"},
+          {"name": "그레이", "id": "check9-4-3"},
+          {"name": "블랙", "id": "check9-4-4"},
+          {"name": "기타", "id": "check9-4-5"}
+        ]
+      },
+      {
+        "properties": "거울스타일",
+        "type": "checkbox",
+        "id": "check9-5",
+        "tag": [
+          {"name": "기본", "id": "check9-5-1"},
+          {"name": "포인트", "id": "check9-5-2"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "조명",
+    "id": "check10",
+    "list": [
+      {
+        "properties": "구분",
+        "type": "checkbox",
+        "id": "check10-1",
+        "tag": [
+          {"name": "거실기본", "id": "check10-1-1"},
+          {"name": "거실포인트", "id": "check10-1-2"},
+          {"name": "룸기본", "id": "check10-1-3"},
+          {"name": "룸포인트", "id": "check10-1-4"},
+          {"name": "키친기본", "id": "check10-1-5"},
+          {"name": "키친포인트", "id": "check10-1-6"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "커튼",
+    "id": "check11",
+    "list": [
+      {
+        "properties": "거실스타일",
+        "type": "checkbox",
+        "id": "check11-1",
+        "tag": [
+          {"name": "패브릭", "id": "check11-1-1"},
+          {"name": "블라인드", "id": "check11-1-2"}
+        ]
+      },
+      {
+        "properties": "거실컬러",
+        "type": "checkbox",
+        "id": "check11-2",
+        "tag": [
+          {"name": "화이트", "id": "check11-2-1"},
+          {"name": "그레이", "id": "check11-2-2"},
+          {"name": "브라운", "id": "check11-2-3"},
+          {"name": "블루", "id": "check11-2-4"},
+          {"name": "기타", "id": "check11-2-5"}
+        ]
+      },
+      {
+        "properties": "룸스타일",
+        "type": "checkbox",
+        "id": "check11-3",
+        "tag": [
+          {"name": "패브릭", "id": "check11-3-1"},
+          {"name": "블라인드", "id": "check11-3-2"}
+        ]
+      },
+      {
+        "properties": "룸컬러",
+        "type": "checkbox",
+        "id": "check11-4",
+        "tag": [
+          {"name": "화이트", "id": "check11-4-1"},
+          {"name": "그레이", "id": "check11-4-2"},
+          {"name": "브라운", "id": "check11-4-3"},
+          {"name": "블루", "id": "check11-4-4"},
+          {"name": "기타", "id": "check11-4-5"}
+        ]
+      }
+    ]
+  }
+]
