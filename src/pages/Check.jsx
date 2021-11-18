@@ -61,49 +61,18 @@ export default function Check() {
       <CheckListWrapper>
         <CheckTitle>{caseBank[checkListIdx].title}</CheckTitle>
         {caseBank[checkListIdx].list.map((group, groupIdx) => {
-          const groupId = group.id;
-          const groupProperties = group.properties;
-          const groupTag = group.tag;
+          const groupData = {
+            groupId: group.id,
+            groupProperties: group.properties,
+            groupTag: group.tag,
+            groupIdx: groupIdx,
+            checkedList: checkedList[checkListIdx].list[groupIdx],
+            handleSetCheckedList: handleSetCheckedList,
+          };
           return (
-            <>
-              <CheckGroup key={groupId}>
-                <GroupProperty>[{groupProperties}]</GroupProperty>
-                <CheckBoxWrapper>
-                  {groupTag.map((item, itemIdx) => {
-                    const itemName = item.name;
-                    const itemDependency = item.dependency
-                      ? item.dependency
-                      : undefined;
-                    const itemId = item.id;
-                    return (
-                      //체크박스
-                      <CheckBox key={itemId}>
-                        <label htmlFor={itemId}>{itemName}</label>
-                        <input
-                          type="checkbox"
-                          id={itemId}
-                          checked={
-                            checkedList[checkListIdx].list[groupIdx].tag.find(
-                              (item) => item.id === itemId
-                            )
-                              ? true
-                              : false
-                          }
-                          onChange={() =>
-                            handleSetCheckedList(
-                              itemId,
-                              groupProperties,
-                              itemName,
-                              itemDependency
-                            )
-                          }
-                        />
-                      </CheckBox>
-                    );
-                  })}
-                </CheckBoxWrapper>
-              </CheckGroup>
-            </>
+            <CheckBoxGroupGrid>
+              <CheckBoxGroup key={groupData.groupId} {...groupData} />
+            </CheckBoxGroupGrid>
           );
         })}
       </CheckListWrapper>
