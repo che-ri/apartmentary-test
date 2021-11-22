@@ -23,7 +23,8 @@ export default function Check() {
   const checkedList = checkedListRef.current;
 
   //dependency가 있는 체크리스트인지 아닌지 판별하는 변수입니다. 있다면 값이 들어있습니다.
-  const HadDependency = useRef(checkedList[checkListIdx].type).current;
+  const HadDependency =
+    checkedList[checkListIdx].type === "dependency-checkbox" ? true : false;
 
   //dependency가 있는 체크리스트의 root를 저장하는 state
   const [rootList, setRootList] = useState(null);
