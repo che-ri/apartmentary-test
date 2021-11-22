@@ -2,10 +2,11 @@
   {
     "title": "바닥재",
     "id": "check1",
+    "type": "dependency-checkbox",
     "list": [
       {
         "properties": "재료",
-        "type": "checkbox",
+        "type": "root-checkbox",
         "id": "check1-1",
         "tag": []
       },

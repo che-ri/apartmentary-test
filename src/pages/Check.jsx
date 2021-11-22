@@ -9,14 +9,25 @@ import DefaultButton from "../components/DefaultButton";
 import caseBank from "../util/case_bank.json";
 import blankCaseBank from "../util/blank_case_bank.json";
 import CheckBoxGroup from "../components/CheckBoxGroup";
+import DragNDrop from "../components/DragNDrop";
+import ChooseImage from "../components/ChooseImage";
 
 export default function Check() {
   const { id } = useParams();
   const checkListIdx = Number(id);
   const history = useHistory();
   const { state } = useLocation();
+
+  //ref에 체크리스트 값을 담아서 다음 체크리스트 페이지에 넘겨줄 것이다.
   const checkedListRef = useRef(state?.checked ? state.checked : blankCaseBank);
   const checkedList = checkedListRef.current;
+
+  //dependency가 있는 체크리스트인지 아닌지 판별하는 변수입니다. 있다면 값이 들어있습니다.
+  const HadDependency = useRef(checkedList[checkListIdx].type).current;
+
+  //dependency가 있는 체크리스트의 root를 저장하는 state
+  const [rootList, setRootList] = useState(null);
+
   const handleSetCheckedList = (id, properties, value, dependency) => {
     //선택한 태그를 저장하거나, 취소하는 함수
     let _list = checkedListRef.current;
@@ -61,24 +72,36 @@ export default function Check() {
 
   return (
     <Container>
-      <CheckListWrapper>
-        <CheckTitle>{caseBank[checkListIdx].title}</CheckTitle>
-        {caseBank[checkListIdx].list.map((group, groupIdx) => {
-          const groupData = {
-            groupId: group.id,
-            groupProperties: group.properties,
-            groupTag: group.tag,
-            groupIdx: groupIdx,
-            checkedList: checkedList[checkListIdx].list[groupIdx],
-            handleSetCheckedList: handleSetCheckedList,
-          };
-          return (
-            <CheckBoxGroupGrid>
-              <CheckBoxGroup key={groupData.groupId} {...groupData} />
-            </CheckBoxGroupGrid>
-          );
-        })}
-      </CheckListWrapper>
+      <Top>
+        <TopGrid>
+          <CheckListWrapper>
+            <CheckTitle>{caseBank[checkListIdx].title}</CheckTitle>
+            {caseBank[checkListIdx].list.map((group, groupIdx) => {
+              const groupData = {
+                groupId: group.id,
+                groupProperties: group.properties,
+                groupTag: group.tag,
+                groupType: group.type,
+                groupIdx: groupIdx,
+                checkedList: checkedList[checkListIdx].list[groupIdx],
+                handleSetCheckedList: handleSetCheckedList,
+                HadDependency: HadDependency,
+                rootList: rootList,
+                setRootList: setRootList,
+              };
+              return (
+                <CheckBoxGroupGrid key={groupData.groupId}>
+                  <CheckBoxGroup key={groupData.groupId} {...groupData} />
+                </CheckBoxGroupGrid>
+              );
+            })}
+          </CheckListWrapper>
+          <DragNDrop />
+        </TopGrid>
+      </Top>
+      <Bottom>
+        <ChooseImage />
+      </Bottom>
       <Controls>
         <DefaultButton onClick={movePrevList}>이전페이지</DefaultButton>
         <DefaultButton onClick={moveNextList}>다음페이지</DefaultButton>
@@ -96,8 +119,16 @@ const Container = styled.div`
   height: 100%;
 `;
 
+const Top = styled.section``;
+
+const TopGrid = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 100%;
+`;
+
 const CheckListWrapper = styled.div`
-  width: 80%;
+  width: 100%;
 `;
 
 const CheckTitle = styled.h3`
@@ -111,22 +142,8 @@ const CheckBoxGroupGrid = styled.div`
   align-items: center;
 `;
 
-const CheckGroup = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  align-items: center;
-`;
-
-const GroupProperty = styled.span`
-  font-size: 20px;
-  font-weight: bold;
-`;
-
-const CheckBoxWrapper = styled.div``;
-
-const CheckBox = styled.div`
-  display: inline-block;
-  margin-right: 5px;
+const Bottom = styled.section`
+  width: 100%;
 `;
 
 const Controls = styled.div``;
