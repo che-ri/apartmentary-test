@@ -11,10 +11,13 @@ const imageSlice = createSlice({
   initialState: initialState,
   reducers: {
     setImage: (state, { payload }) => {
-      state.list.pop(payload);
+      state.list.push(payload);
+    },
+    deleteImage: (state, { payload }) => {
+      state.list = state.list.filter((src) => src !== payload);
     },
   },
 });
-export const {} = imageSlice.actions;
+export const { setImage, deleteImage } = imageSlice.actions;
 
 export default imageSlice;
