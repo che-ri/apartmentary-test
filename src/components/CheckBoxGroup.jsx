@@ -13,7 +13,6 @@ const CheckBoxComponent = ({
 }) => {
   const [boxChecked, setBoxChecked] = useState(checked);
   const isLinkedDependency = rootList && rootList.includes(itemDependency);
-  console.log(isLinkedDependency);
 
   //dependency체크박스이고, root와 연결되어있는 항목이면 보여준다.
   if (itemDependency)
@@ -95,6 +94,7 @@ export default function CheckBoxGroup({
                 return (
                   //체크박스
                   <CheckBoxComponent
+                    key={itemId}
                     itemId={itemId}
                     checked={
                       checkedList.tag.find((item) => item.id === itemId)
@@ -127,6 +127,7 @@ export default function CheckBoxGroup({
           return (
             //체크박스
             <CheckBoxComponent
+              key={itemId}
               itemId={itemId}
               checked={
                 checkedList.tag.find((item) => item.id === itemId)
