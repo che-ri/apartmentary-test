@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 //slice
-import { deleteImage } from "../store/slice/imageSlice";
+import { deleteImage, changeIdx } from "../store/slice/imageSlice";
 
 export default function DragNDrop() {
   const dispatch = useDispatch();
@@ -11,6 +11,29 @@ export default function DragNDrop() {
 
   const onDeleteClick = (src) => {
     dispatch(deleteImage(src));
+  };
+
+  const onDragStart = (e, idx) => {
+    const src = e.target.src;
+    e.dataTransfer.setData("text/uri-list", src);
+    e.dataTransfer.setData("text/plain", idx);
+  };
+
+  const onDrop = (e, idx) => {
+    e.currentTarget.style.background = "yellow";
+
+    const req = {
+      dropedSrc: e.dataTransfer.getData("text/uri-list"),
+      dropedIdx: e.dataTransfer.getData("text/plain"),
+      originSrc: e.target.currentSrc,
+      originIdx: idx,
+    };
+
+    dispatch(changeIdx(req));
+  };
+
+  const onDragOver = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -25,7 +48,13 @@ export default function DragNDrop() {
                 <DeleteBtn onClick={() => onDeleteClick(src)}>삭제</DeleteBtn>
               </Header>
               <ImageWrapper>
-                <Image src={src} />
+                <Image
+                  src={src}
+                  onDragStart={(e) => onDragStart(e, idx)}
+                  onDragOver={onDragOver}
+                  onDrop={(e) => onDrop(e, idx)}
+                  draggable={true}
+                />
               </ImageWrapper>
             </PriorityBox>
           );
@@ -65,4 +94,5 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   vertical-align: top;
+  background: gray;
 `;

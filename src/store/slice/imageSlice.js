@@ -16,8 +16,12 @@ const imageSlice = createSlice({
     deleteImage: (state, { payload }) => {
       state.list = state.list.filter((src) => src !== payload);
     },
+    changeIdx: (state, { payload }) => {
+      state.list.splice(payload.originIdx, 1, payload.dropedSrc);
+      state.list.splice(payload.dropedIdx, 1, payload.originSrc);
+    },
   },
 });
-export const { setImage, deleteImage } = imageSlice.actions;
+export const { setImage, deleteImage, changeIdx } = imageSlice.actions;
 
 export default imageSlice;
